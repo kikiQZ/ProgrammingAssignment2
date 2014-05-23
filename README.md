@@ -1,3 +1,6 @@
+##I followed the instruction of Assignment 2 and overwrote the original R file in thr fork. It includes two parts: makeCacheMatrix.R and cacheSolve.R. The first one creates a matrix which can cache its inverse and the second one tests and computes the inverse result from the cache.
+
+
 ### Introduction
 
 This second programming assignment will require you to write an R
