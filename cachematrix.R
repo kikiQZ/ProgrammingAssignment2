@@ -8,7 +8,7 @@
 makeCacheMatrix <- function(x=matrix()) {
   ##use i represent inverse; assign NULL to i
   i <- NULL
-  ##create function and assign values in another environment
+  ##function in a different environment; use <<- instead of <-
   set <- function(y) {
     x <<- y
     i <<- NULL
@@ -17,8 +17,9 @@ makeCacheMatrix <- function(x=matrix()) {
   get <- function() x
   ##set the value of inverse
   seti <- function(inverse) i<<- inverse
-  ##get the value of the inverse
+  ##get the value of inverse
   geti <- function() i
+  ##return a list composed of value being tagged
   list(set=set, get=get,
        seti = seti,
        geti = geti)
@@ -37,7 +38,7 @@ cacheSolve <- function(x,...) {
     message("getting cached inverse")
     return(i)
   }
-  ##otherwise, calculate the inverse of the matrix
+  ##otherwise, calculate the inverse of the matrix and saved it in cache
   inverse <- x$get()
   i <- solve(inverse, ...)
   x$seti(i)
